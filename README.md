@@ -1,4 +1,4 @@
 # StarRatingModule
 Contributors: 
-- Kenny Batista
-- Julia GeiSt
+- Kenny Batista :boy:
+- Julia GeiSt :girl:
