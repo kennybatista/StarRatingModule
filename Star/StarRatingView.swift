@@ -21,11 +21,11 @@ class StarRatingView: UIView {
     }
     
     func handleAddingStarViews () {
-        var xPosition = 0
-        let width = 100
+        var xPosition = 20
+        let width = 50
         
         for i in 1...5 {
-            let star = StarView(frame: CGRect(x: xPosition, y: 0, width: width, height: 100))
+            let star = StarView(frame: CGRect(x: xPosition, y: 250, width: width, height: 20))
             self.addSubview(star)
             xPosition += width + 10
         }

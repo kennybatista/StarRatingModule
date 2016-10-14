@@ -22,7 +22,7 @@ class StarView: UILabel {
     
     func handleStarViewInit () {
         self.text = "✭"
-        self.font = UIFont(name: "Helvetica", size: 90)
-        self.frame.origin.x += 60
+        self.font = UIFont(name: "Helvetica", size: 45)
+        self.frame.origin.x += 30
     }
 }
