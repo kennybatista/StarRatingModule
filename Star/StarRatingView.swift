@@ -33,49 +33,38 @@ class StarRatingView: UIView {
         }
     }
     
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let location = touches.first?.location(in: self)
+        
+        if (touchIsWithinBoundary(location, 45, 105)){
+            let firstStar = starArray[0]
+            shiftStarToNewState(firstStar)
+            
+        } else if (touchIsWithinBoundary(location, 105, 160) ) {
+            let secondStar = starArray[1]
+            shiftStarToNewState(secondStar)
+            
+        } else if (touchIsWithinBoundary(location, 160, 223)) {
+            let thirdStar = starArray[2]
+            shiftStarToNewState(thirdStar)
+            
+        } else if (touchIsWithinBoundary(location, 223, 284) ) {
+            let fourthStar = starArray[3]
+            shiftStarToNewState(fourthStar)
+            
+        } else if (touchIsWithinBoundary(location, 284, 345) ) {
+            let fifthStar = starArray[4]
+            shiftStarToNewState(fifthStar)
+        }
+    }
+    
     func touchIsWithinBoundary(location: CGPoint, _ lowerBound: Int, _ upperBound: Int) -> Bool {
         return (location.x >= CGFloat(lowerBound) && location.x <= CGFloat(upperBound))
     }
     
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let location = touches.first?.location(in: self)
-//        print(location)
-        
-        if (touchIsWithinBoundary(location, 45, 105)){
-            let firstStar = starArray[0]
-            if firstStar.stateSelected == false {
-                firstStar.shiftToSelectedState()
-            }
-            
-        } else if (touchIsWithinBoundary(location, 105, 160) ) {
-            let secondStar = starArray[1]
-            if secondStar.stateSelected == false {
-                secondStar.shiftToSelectedState()
-            }
-            
-        } else if (touchIsWithinBoundary(location, 160, 223)) {
-            let thirdStar = starArray[2]
-            if thirdStar.stateSelected == false {
-                thirdStar.shiftToSelectedState()
-            }
-            
-        } else if (touchIsWithinBoundary(location, 223, 284) ) {
-            let fourthStar = starArray[3]
-            if fourthStar.stateSelected == false {
-                fourthStar.shiftToSelectedState()
-            }
-            
-        } else if (touchIsWithinBoundary(location, 284, 345) ) {
-            let fifthStar = starArray[4]
-            if fifthStar.stateSelected == false {
-                fifthStar.shiftToSelectedState()
-            }
-            
+    func shiftStarToNewState(star: StarView){
+        if star.stateSelected == false {
+            star.shiftToSelectedState()
         }
-        
     }
-    
-    
 }
-
-//var starRating: StarRatingView = StarRatingView(frame: CGRect(x: self.frame.origin.x, y: self.frame.origin.y, width: 700, height: 300))
