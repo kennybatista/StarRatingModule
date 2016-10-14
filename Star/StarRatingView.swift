@@ -9,7 +9,7 @@
 import UIKit
 
 class StarRatingView: UIView {
-//    var star
+    var starArray: [StarView] = []
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,14 +25,52 @@ class StarRatingView: UIView {
         let width = 50
         
         for i in 1...5 {
-            let star = StarView(frame: CGRect(x: xPosition, y: 250, width: width, height: 20))
+            let star = StarView(frame: CGRect(x: xPosition, y: Int(self.frame.size.height / 2 - 10), width: width, height: 20))
+            
             self.addSubview(star)
+            starArray.append(star)
             xPosition += width + 10
         }
+        
+        
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print(touches.first)
+        let location = touches.first?.location(in: self)
+//        print(location)
+        
+        if ((location?.x)! >= CGFloat(45) && (location?.x)! <= CGFloat(105) ){
+            let firstStar = starArray[0]
+            if firstStar.stateSelected == false {
+                firstStar.shiftToSelectedState()
+            }
+            
+        } else if ((location?.x)! >= CGFloat(105) && (location?.x)! <= CGFloat(160) ) {
+            let secondStar = starArray[1]
+            if secondStar.stateSelected == false {
+                secondStar.shiftToSelectedState()
+            }
+            
+        } else if ((location?.x)! >= CGFloat(160) && (location?.x)! <= CGFloat(223) ) {
+            let thirdStar = starArray[2]
+            if thirdStar.stateSelected == false {
+                thirdStar.shiftToSelectedState()
+            }
+            
+        } else if ((location?.x)! >= CGFloat(223) && (location?.x)! <= CGFloat(284) ) {
+            let fourthStar = starArray[3]
+            if fourthStar.stateSelected == false {
+                fourthStar.shiftToSelectedState()
+            }
+            
+        } else if ((location?.x)! >= CGFloat(284.1) && (location?.x)! <= CGFloat(345) ) {
+            let fifthStar = starArray[4]
+            if fifthStar.stateSelected == false {
+                fifthStar.shiftToSelectedState()
+            }
+            
+        }
+        
     }
     
     

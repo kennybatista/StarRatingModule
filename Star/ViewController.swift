@@ -14,7 +14,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib
         
-        let starRatingView: StarRatingView = StarRatingView(frame: CGRect(x: self.view.frame.origin.x, y: self.view.frame.origin.y, width: 700, height: 300))
+        let starRatingView: StarRatingView = StarRatingView(frame: CGRect(x: 0, y: 200, width: self.view.frame.width, height: 50))
+        starRatingView.backgroundColor = UIColor.red
         self.view.addSubview(starRatingView)
     }
     

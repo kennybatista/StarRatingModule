@@ -10,6 +10,7 @@ import UIKit
 
 class StarView: UILabel {
 
+    var stateSelected = false
     
     override init(frame: CGRect){
         super.init(frame: frame)
@@ -24,5 +25,15 @@ class StarView: UILabel {
         self.text = "✭"
         self.font = UIFont(name: "Helvetica", size: 45)
         self.frame.origin.x += 30
+    }
+    
+    func shiftToSelectedState () {
+        self.backgroundColor = UIColor.blue
+        stateSelected = true
+    }
+    
+    func shiftToDeselectedState () {
+        self.backgroundColor = UIColor.white
+        stateSelected = false
     }
 }
